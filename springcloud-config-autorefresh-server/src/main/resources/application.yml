@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  application:
+      name: autorefresh-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/minorpoet/spring-cloud-config-repo.git
+          username: xx
+          password: xx
+          clone-on-start: true
+          repos:
+            autorefresh-client-special:
+              uri: https://github.com/minorpoet/spring-cloud-config-repo-alone.git
+              username: xx
+              password: xx
+    bus:
+      trace:
+        enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+management:
+  security:
+    enabled: false

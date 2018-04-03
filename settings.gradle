@@ -1,0 +1,8 @@
+rootProject.name = 'springcloud-config-multirepo-autorefresh'
+
+include('springcloud-config-autorefresh-eureka')
+include('springcloud-config-autorefresh-server')
+include('springcloud-config-autorefresh-client-special')
+include('springcloud-config-autorefresh-client-cat')
+include('springcloud-config-autorefresh-client-dog')
+

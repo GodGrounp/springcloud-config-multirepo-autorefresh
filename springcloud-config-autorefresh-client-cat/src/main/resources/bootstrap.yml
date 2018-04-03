@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: autorefresh-client-cat
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: autorefresh-server
+      label: master
+    bus:
+      trace:
+        enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8081
