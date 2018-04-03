@@ -21,3 +21,7 @@ curl -X POST http://localhost:8080/bus/refresh -d 'destination=autorefresh-clien
 
 
 拆分开来的好处是： 更新特定配置的时候 基于git的 webhoot 配置成只更新的对应应用的配置，而不会广播到所有配置消费服务
+
+
+
+!!! 注意： 如果配置不是使用 @ConfigurationProperties 来读取的，而是使用 @Value("占位符") 这种方式获取的， 需要在类上打上 @RefreshScope 来支持动态刷新。
